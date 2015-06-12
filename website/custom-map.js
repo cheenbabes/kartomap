@@ -52,5 +52,6 @@ map.addSymbols({
     sortBy: 'radius desc',
     style: 'fill:#800; stroke:#fff; fill-opacity:0.5'
 
-});
+        });
+    });
 });
