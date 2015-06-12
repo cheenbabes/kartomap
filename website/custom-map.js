@@ -32,5 +32,25 @@ map.loadMap("mapfinal.svg", function() {
         }
     });
 
-    });
+    
+cities =[
+    {
+        city_name: "New York",
+        nb_visits: 1500,
+        lon:-73.98,
+        lat:40.74,
+    }
+];
+
+var scale = $K.scale.sqrt(cities, 'nb_visits').range([0,40]);
+    
+map.addSymbols({
+    type: Kartograph.Bubble,
+    data: cities,
+    location: function(city) { return[city.lon, city.lat]; },
+    radius: function(city){ return scale(city.nb_visits); },
+    sortBy: 'radius desc',
+    style: 'fill:#800; stroke:#fff; fill-opacity:0.5'
+
+});
 });
