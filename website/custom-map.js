@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 var map = $K.map('#map');
 
-map.loadMap("mapfinal.svg", function() {
+map.loadMap("USA.svg", function() {
     // add layers
     map.addLayer('background', { 
         styles:{
@@ -10,7 +10,7 @@ map.loadMap("mapfinal.svg", function() {
             'stroke': 'none'
         }
     });
-    map.addLayer('world',{
+    map.addLayer('admin1',{
         styles:{
             fill: '#f5f3f2',
             'stroke':'none'
