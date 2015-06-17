@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Harinama Sankirtan Map</title>
+    <!--    CSS-->
+    <link rel="stylesheet" href="jquery-jvectormap-2.0.2.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap.css" type="text/css">
+
+    <!--    Javascript-->
+    <script src="jquery.js"></script>
+    <script src="jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="us_aea_en.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map" style="width: 2000px; height: 900px"></div>
+                <script>
+                    $(function () {
+                        markers = [
+                                {latLng: [40, -104],name: 'Denver'},
+                                {latLng: [32.1, -110],name: 'Tucson'},
+                                {latLng: [33.5, -118.2],name: 'Los Angeles'},
+                                {latLng: [37.3, -122],name: 'San Francisco'},
+                                {latLng: [41.5, -87.5],name: 'Chicago'},
+                                {latLng: [40.8, -73.9],name: 'New York City'},
+                                {latLng: [25.8, -80.2],name: 'Miami'}
+
+                        ],
+                            cityAreaData = [5, 4, 20, 18, 9, 35, 21]
+
+                        map = new jvm.Map({
+                                container: $('#map'),
+                                map: 'us_aea_en',
+                                regionsSelectable: true,
+                                markersSelectable: true,
+                                markers: markers,
+                                regionStyle: {
+                                    initial: {
+                                        fill: '#9be1ef'
+                                    },
+                                    selected: {
+                                        fill: '#357B89'
+                                    }
+                                },
+                                markerStyle: {
+                                    initial: {
+                                        fill: '#B93275',
+                                        stroke: '#B93275',
+                                        opacity: 0.75,
+                                        "stroke-width": 1,
+                                        "stroke-opacity":1
+                                    },
+                                    selected:{
+                                        fill: '#790035'
+                                    }
+                                },
+                                series: {
+                                    markers: [{
+                                        attribute: 'r',
+                                        scale: [3, 25],
+                                        values: cityAreaData,
+                                        normalizeFunctin: 'polynomial'
+                                            }]
+                                },
+                                onMarkerTipShow: function(event, label, index){
+                                    label.html(
+                                        '<b>'+markers[index].name+'</b><br>'+
+                                        '<b>Hours of Harinam: </b>'+cityAreaData[index]
+                                        
+                                    );
+                                }
+                            });
+                        })
+                        
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

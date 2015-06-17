@@ -1,0 +1,5 @@
+{
+   "layers": [{
+       "src": "shp/ne_50m_admin_0_countries.shp"
+   }]
+}
