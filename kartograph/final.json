@@ -29,12 +29,7 @@
             "src": "shp/ne_50m_urban_areas.shp",
             "simplify": 2,
 	    "attributes": "all"
-        },
-	"cities":{
-	    "src": "shp/ne_50m_populated_places_simple.shp",
-	    "simplify": 2,
-            "attributes": "all"
-	}
+        }
     },
     "bounds": {
         "mode": "bbox",
