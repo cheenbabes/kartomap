@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+$.fn.qtip.defaults.style.classes = 'qtip-bootstrap';
+$.fn.qtip.defaults.style.def = false;
 var map = $K.map('#map');
 
 map.loadMap("final.svg", function() {
@@ -47,7 +49,7 @@ map.loadMap("final.svg", function() {
     });
     
 var cities = [
-        { lon: -97.70, lat: 30.3 , name: 'Austin', hours: 5 },
+        { lon: -97.70, lat: 30.3 , name: 'Austin', hours: 5, books: 236 },
         { lon: -79.38, lat: 43.65 , name: 'Toronto', hours: 5 },
         { lon: -87.65, lat: 41.90 , name: 'Chicago', hours: 5 },
         { lon: -104.9, lat: 39.7 , name: 'Denver', hours: 5 },
@@ -58,40 +60,57 @@ var cities = [
         { lon: -78.78, lat: 35.87 , name: 'Durham', hours: 5 },
         { lon: -121.60, lat: 38.70 , name: 'Sacramento', hours: 5 },
         { lon: -117.17, lat: 32.73 , name: 'San Diego', hours: 4},
-        { lon: -122.0, lat: 37.3 , name: 'San Francisco', hours: 18},
+        { lon: -122.0, lat: 37.3 , name: 'San Francisco', hours: 18, books: 8000},
         { lon: -73.9, lat: 40.8 , name: 'New York', hours: 35},
+        { lon: -104.9, lat: 40.2 , name: 'Ft. Collins', hours: 0, books: 50 },
+
         
     ];
         
-var scale = kartograph.scale.sqrt(cities, 'hours').range([8, 30]);
+var scaleHours = kartograph.scale.sqrt(cities, 'hours').range([0, 30]);
+var scaleBooks = kartograph.scale.sqrt(cities, 'books').range([0, 30]);
     
 map.addSymbols({
         type: kartograph.Bubble,
         data: cities,
-        radius: function(city){return scale(city.hours);},
+        radius: function(city){return scaleHours(city.hours);},
         location: function(city) { return [city.lon, city.lat];},
-        style: 'fill:#800000; stroke: #fff; opacity: 0.5',
+        style: 'fill:#04c; stroke: #fff; fill-opacity: 0.5',
         tooltip: function(city) {
-            return '<h3>'+city.name+'</h3>'+city.hours+' hours';
-        }
+            return '<h3>'+city.name+'</h3>'+city.hours+' hours</br><img class="img-responsive" src="https://krishnatest.blob.core.windows.net/krishnatestcontainer1/24hourkirtan.jpg">';
+        },
+        sortBy: 'radius desc'
     });
     
-map.addSymbols({
-        type: kartograph.LabeledBubble,
-        data: cities,
-        location: function(d){ return [d.lon, d.lat]; },
-        title: function(d) { return d.name; },
-        radius: 3,
-        center: false,
-        attrs: {fill: 'black'},
-        labelattrs: { 'font-size' : 10 },
-        buffer: true
-    });
+    
+//Adding books symbols to map    
+//    map.addSymbols({
+//        type: kartograph.Bubble,
+//        data: cities,
+//        radius: function(city){return scaleBooks(city.books);},
+//        location: function(city) { return [city.lon, city.lat];},
+//        style: 'fill:#ffd500; stroke: #fff; fill-opacity: 0.65',
+//        sortBy: 'radius desc'
+//    });
+    
+//Adding city labels to map    
+//map.addSymbols({
+//        type: kartograph.LabeledBubble,
+//        data: cities,
+//        location: function(d){ return [d.lon, d.lat]; },
+//        title: function(d) { return d.name; },
+//        radius: 3,
+//        center: false,
+//        attrs: {fill: 'black'},
+//        labelattrs: { 'font-size' : 10 },
+//        buffer: true
+//    });
     
 
 
     
-});
+},
+            {padding: -5});
     
 });
 
