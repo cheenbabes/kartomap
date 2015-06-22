@@ -22,27 +22,27 @@
                 <div id="map" style="width: 2000px; height: 900px"></div>
                 <script>
                     $(function () {
-                        markers = [
-                                {latLng: [40, -104],name: 'Denver', hours: 5},
-                                {latLng: [32.1, -110],name: 'Tucson'},
-                                {latLng: [33.5, -118.2],name: 'Los Angeles'},
-                                {latLng: [37.3, -122],name: 'San Francisco'},
-                                {latLng: [41.5, -87.5],name: 'Chicago'},
-                                {latLng: [40.8, -73.9],name: 'New York City'},
-                                {latLng: [25.8, -80.2],name: 'Miami'}
-
-                        ],
+//                        markers = [
+//                                {latLng: [40, -104],name: 'Denver', hours: 5},
+//                                {latLng: [32.1, -110],name: 'Tucson'},
+//                                {latLng: [33.5, -118.2],name: 'Los Angeles'},
+//                                {latLng: [37.3, -122],name: 'San Francisco'},
+//                                {latLng: [41.5, -87.5],name: 'Chicago'},
+//                                {latLng: [40.8, -73.9],name: 'New York City'},
+//                                {latLng: [25.8, -80.2],name: 'Miami'}
+//
+//                        ],
 //                            cityAreaData = [5, 4, 20, 18, 9, 35, 21]
-                            cityAreaData = markers.map(function(a) {return a.hours});
+                            cityAreaData = cities.map(function(a) {return a.hours});
                         map = new jvm.Map({
                                 container: $('#map'),
                                 map: 'us_aea_en',
                                 regionsSelectable: true,
                                 markersSelectable: true,
-                                markers: markers,
+                                markers: cities,
                                 regionStyle: {
                                     initial: {
-                                        fill: '#9be1ef'
+                                        fill: '#ececf8'
                                     },
                                     selected: {
                                         fill: '#357B89'
@@ -50,32 +50,37 @@
                                 },
                                 markerStyle: {
                                     initial: {
-                                        fill: '#B93275',
-                                        stroke: '#B93275',
-                                        opacity: 0.75,
+//                                        fill: '#B93275',
+                                        fill: '#990000',
+//                                        stroke: '#B93275',
+                                        stroke: '#fff',
+                                        opacity: 0.5,
                                         "stroke-width": 1,
                                         "stroke-opacity":1
                                     },
                                     selected:{
                                         fill: '#790035'
+                                    },
+                                    hover:{
+                                        stroke: '#000'
                                     }
                                 },
                                 series: {
                                     markers: [{
                                         attribute: 'r',
-                                        scale: [3, 25],
+                                        scale: [4, 30],
                                         values: cityAreaData,
                                         normalizeFunction: 'polynomial'
                                             }],
                                     regions:[{
                                         values: bookscores,
-                                        scale: ['#C8eeff', '#0071A4'],
+                                        scale: ['#f0f9e8','#bae4bc', '#7bccc4', '#2b8cbe' ],
                                         normalizeFunction: 'polynomial'
                                     }]
                                 },
                                 onMarkerTipShow: function(event, label, index){
                                     label.html(
-                                        '<b>'+markers[index].name+'</b><br>'+
+                                        '<b>'+cities[index].name+'</b><br>'+
                                         '<b>Hours of Harinam: </b>'+cityAreaData[index]
                                         
                                     );

@@ -18,20 +18,19 @@ var bookscores =  {
   };
 
 var cities =[
-    {latLng: [30.3,-97.90] , name: 'Austin'},    
-    {latLng: [40, -104],name: 'Denver'},
-    {latLng: [32.1, -110],name: 'Tucson'},
-    {latLng: [33.5, -118.2],name: 'Los Angeles'},
-    {latLng: [37.3, -122],name: 'San Francisco'},
-    {latLng: [41.5, -87.5],name: 'Chicago'},
-    {latLng: [40.8, -73.9],name: 'New York City'},
-    {latLng: [25.8, -80.2],name: 'Miami'},
-    {latLng: [41.90,-87.65], name: 'Chicago'},
-    {latLng: [33.54,-117.78], name: 'Laguna Beach'},
-//    {lon: -74.34, lat: 40.92 , name: 'New Jersey', hours: 6},
-//        { lon: -78.78, lat: 35.87 , name: 'Hillsborough', hours: 10 },
-//        { lon: -121.60, lat: 38.70 , name: 'Sacramento', hours: 7 },
-//        { lon: -117.17, lat: 32.73 , name: 'San Diego', hours: 9},
+    {latLng: [30.3,-97.90] , name: 'Austin', hours: 8},    
+    {latLng: [40, -104],name: 'Denver', hours: 10, img: 'https://krishnatest.blob.core.windows.net/krishnatestcontainer1/24hourkirtan.jpg'},
+    {latLng: [32.1, -110],name: 'Tucson', hours: 5},
+    {latLng: [33.5, -118.2],name: 'Los Angeles', hours: 8},
+    {latLng: [37.3, -122],name: 'San Francisco', hours: 12},
+    {latLng: [40.8, -73.9],name: 'New York City', hours: 15},
+    {latLng: [25.8, -80.2],name: 'Miami', hours: 14},
+    {latLng: [41.90,-87.65], name: 'Chicago', hours: 8},
+    {latLng: [33.54,-117.78], name: 'Laguna Beach', hours: 7},
+    {latLng: [40.92,-74.34], name: 'New Jersey', hours: 4},
+    {latLng: [35.87, -78.78], name: 'Hillsborough', hours: 11 },
+    {latLng: [38.70,-121.60], name: 'Sacramento', hours: 8 },
+    {latLng: [32.73, -117.17], name: 'San Diego', hours: 12},
 
 ];
         
