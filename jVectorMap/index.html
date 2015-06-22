@@ -12,6 +12,7 @@
     <script src="jquery-jvectormap-2.0.2.min.js"></script>
     <script src="bootstrap.js"></script>
     <script src="us_aea_en.js"></script>
+    <script src="bookscores.js"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <script>
                     $(function () {
                         markers = [
-                                {latLng: [40, -104],name: 'Denver'},
+                                {latLng: [40, -104],name: 'Denver', hours: 5},
                                 {latLng: [32.1, -110],name: 'Tucson'},
                                 {latLng: [33.5, -118.2],name: 'Los Angeles'},
                                 {latLng: [37.3, -122],name: 'San Francisco'},
@@ -31,8 +32,8 @@
                                 {latLng: [25.8, -80.2],name: 'Miami'}
 
                         ],
-                            cityAreaData = [5, 4, 20, 18, 9, 35, 21]
-
+//                            cityAreaData = [5, 4, 20, 18, 9, 35, 21]
+                            cityAreaData = markers.map(function(a) {return a.hours});
                         map = new jvm.Map({
                                 container: $('#map'),
                                 map: 'us_aea_en',
@@ -64,8 +65,13 @@
                                         attribute: 'r',
                                         scale: [3, 25],
                                         values: cityAreaData,
-                                        normalizeFunctin: 'polynomial'
-                                            }]
+                                        normalizeFunction: 'polynomial'
+                                            }],
+                                    regions:[{
+                                        values: bookscores,
+                                        scale: ['#C8eeff', '#0071A4'],
+                                        normalizeFunction: 'polynomial'
+                                    }]
                                 },
                                 onMarkerTipShow: function(event, label, index){
                                     label.html(
@@ -73,6 +79,14 @@
                                         '<b>Hours of Harinam: </b>'+cityAreaData[index]
                                         
                                     );
+                                },
+                                onRegionTipShow: function(e, el, code){
+                                    if(bookscores[code]){
+                                        el.html(el.html()+ ': '+bookscores[code] + ' book points');
+                                    }
+                                    else{
+                                        el.html(el.html());
+                                    }
                                 }
                             });
                         })

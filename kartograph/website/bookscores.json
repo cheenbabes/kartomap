@@ -1,0 +1,56 @@
+{
+  "California": {
+    "Score":18839.4
+  },
+  "Kansas": {
+    "Score":10634.85
+  },
+  "Illinois": {
+    "Score":2930.35
+  },
+  "Florida": {
+    "Score":2562.2
+  },
+  "Maryland": {
+    "Score":1889.65
+  },
+  "Mississippi": {
+    "Score":1798.25
+  },
+  "District of Columbia": {
+    "Score":1750.75
+  },
+  "Colorado": {
+    "Score":1667.75
+  },
+  "Texas": {
+    "Score":1589.25
+  },
+  "Georgia": {
+    "Score":1117.6
+  },
+  "New York": {
+    "Score":920.25
+  },
+  "Arizona": {
+    "Score":705.5
+  },
+  "Ontario": {
+    "Score":985.95
+  },
+  "British Columbia": {
+    "Score":611
+  },
+  "North Carolina": {
+    "Score":414.8
+  },
+  "Pennsylvania": {
+    "Score":352.25
+  },
+  "Louisiana": {
+    "Score":317.75
+  },
+  "Connecticut": {
+    "Score":278.75
+  }
+}
