@@ -82,7 +82,7 @@ map.addSymbols({
         data: cities,
         radius: function(city){return scaleHours(city.hours);},
         location: function(city) { return [city.lon, city.lat];},
-        style: 'fill:#04c; stroke: #fff; fill-opacity: 0.5',
+        style: 'fill:#259073; stroke: #fff; fill-opacity: 0.5',
         tooltip: function(city) {
             var header = '<b>'+city.name+'</b>';
             var myString  = '<div class="alert alert-info"><b>'+city.hours+' hours of harinam</b></div>';
