@@ -1,0 +1,43 @@
+{
+    "proj": {
+        "id": "laea",
+        "lon0": -104.5,
+        "lat0": 48.25
+    },
+    "layers": {
+        "graticule": {
+            "special": "graticule",
+            "latitudes": 6,
+            "longitudes": 6
+        },
+        "world": {
+            "src": "shp/ne_10m_admin_0_countries.shp",
+            "simplify": 2,
+	    "attributes": "all"
+
+        },
+        "states": {
+            "src": "shp/ne_10m_admin_1_states_provinces.shp",
+            "simplify": 2,
+            "attributes": "all"
+        },
+        "urban": {
+            "src": "shp/ne_10m_urban_areas.shp",
+            "simplify": 2,
+	    "attributes": "all"
+        },
+	"trees":{
+	    "src": "shp/Trees.shp",
+	    "simplify": 2,
+	    "attributes": "all"	
+	}
+    },
+    "bounds": {
+        "mode": "bbox",
+        "data": [-126.36, 32.12, -109.116, 40.430]
+    },
+    "export": {
+        "width": 1500,
+        "height": "auto"
+    }
+}
