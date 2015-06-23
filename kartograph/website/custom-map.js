@@ -55,20 +55,11 @@ map.getLayer('states').style('fill', function(data){
         return data.admin == "Canada" ? '#ebe7e5' : '#ececf8';
     });
     
-map.getLayer('states', {
-    click: function(data, path, event) {
-        $('#myModal').modal('show')
-        // handle mouse clicks
-        // *data* holds the data dictionary of the clicked path
-        // *path* is the raphael object
-        // *event* is the original JavaScript event
-    }
-});
 var cities = [
-        { lon: -97.70, lat: 30.3 , name: 'Austin', hours: 8, books: 430 },
+        { lon: -97.70, lat: 30.3 , name: 'Austin', hours: 8, books: 430, hasModal: false },
         { lon: -79.38, lat: 43.65 , name: 'Toronto', hours: 10 },
         { lon: -87.65, lat: 41.90 , name: 'Chicago', hours: 5 },
-        { lon: -104.9, lat: 39.7 , name: 'Denver', hours: 8, img: 'https://krishnatest.blob.core.windows.net/krishnatestcontainer1/24hourkirtan.jpg', books: 1400 },
+        { lon: -104.9, lat: 39.7 , name: 'Denver', hours: 8, hasModal: true, books: 1400 },
         { lon: -117.78, lat: 33.54 , name: 'Laguna Beach', hours: 12 },
         { lon: -118.2, lat: 33.5 , name: 'Los Angeles', hours: 20},
         { lon: -80.43, lat: 25.65 , name: 'Miami', hours: 20 },
@@ -93,8 +84,13 @@ map.addSymbols({
         location: function(city) { return [city.lon, city.lat];},
         style: 'fill:#04c; stroke: #fff; fill-opacity: 0.5',
         tooltip: function(city) {
+            var header = '<b>'+city.name+'</b>';
+            var myString  = '<div class="alert alert-info"><b>'+city.hours+' hours of harinam</b></div>';
+            if(city.hasModal){
+                myString += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#'+city.name+'Modal">More '+ city.name+' Info</button>';
+            }
 //            return '<h4>'+city.name+'</h4><b>Harinam hours: </b>'+city.hours+'</br>'+((city.img) ? '<img class="img-responsive" src="'+city.img+'">' : '')+'<br><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>';
-            return ['title', 'text'];
+            return [header, myString];
         },
         sortBy: 'radius desc'
     });
@@ -128,6 +124,17 @@ map.addSymbols({
     
 },
             {padding: -5});
+    
+    //for playing youtube videos    
+    var url = $('#harinam-video').attr('src');
+    $('#DenverModal').on('hide.bs.modal', function(){
+        $('#harinam-video').attr('src', '');
+    });
+    $('#DenverModal').on('show.bs.modal', function(){
+        $('#harinam-video').attr('src', url);
+    });
+    
+    
     
 });
 
