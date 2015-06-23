@@ -51,15 +51,24 @@ map.loadMap("final.svg", function() {
 //        }
 //    });  
     
- map.getLayer('states').style('fill', function(data){
+map.getLayer('states').style('fill', function(data){
         return data.admin == "Canada" ? '#ebe7e5' : '#ececf8';
     });
     
+map.getLayer('states', {
+    click: function(data, path, event) {
+        $('#myModal').modal('show')
+        // handle mouse clicks
+        // *data* holds the data dictionary of the clicked path
+        // *path* is the raphael object
+        // *event* is the original JavaScript event
+    }
+});
 var cities = [
-        { lon: -97.70, lat: 30.3 , name: 'Austin', hours: 8 },
+        { lon: -97.70, lat: 30.3 , name: 'Austin', hours: 8, books: 430 },
         { lon: -79.38, lat: 43.65 , name: 'Toronto', hours: 10 },
         { lon: -87.65, lat: 41.90 , name: 'Chicago', hours: 5 },
-        { lon: -104.9, lat: 39.7 , name: 'Denver', hours: 8, img: 'https://krishnatest.blob.core.windows.net/krishnatestcontainer1/24hourkirtan.jpg' },
+        { lon: -104.9, lat: 39.7 , name: 'Denver', hours: 8, img: 'https://krishnatest.blob.core.windows.net/krishnatestcontainer1/24hourkirtan.jpg', books: 1400 },
         { lon: -117.78, lat: 33.54 , name: 'Laguna Beach', hours: 12 },
         { lon: -118.2, lat: 33.5 , name: 'Los Angeles', hours: 20},
         { lon: -80.43, lat: 25.65 , name: 'Miami', hours: 20 },
@@ -67,14 +76,14 @@ var cities = [
         { lon: -78.78, lat: 35.87 , name: 'Hillsborough', hours: 10 },
         { lon: -121.60, lat: 38.70 , name: 'Sacramento', hours: 7 },
         { lon: -117.17, lat: 32.73 , name: 'San Diego', hours: 9},
-        { lon: -122.0, lat: 37.3 , name: 'Silicon Valley', hours: 12},
+        { lon: -122.0, lat: 37.3 , name: 'Silicon Valley', hours: 12, books: 8110},
         { lon: -73.9, lat: 40.8 , name: 'New York', hours: 19},
 //        { lon: -104.9, lat: 40.2 , name: 'Ft. Collins', hours: randomIntFromInterval(3,20)},
 
         
     ];
         
-var scaleHours = kartograph.scale.sqrt(cities, 'hours').range([2, 30]);
+var scaleHours = kartograph.scale.linear(cities, 'hours').range([2, 30]);
 var scaleBooks = kartograph.scale.sqrt(cities, 'books').range([0, 30]);
     
 map.addSymbols({
@@ -84,7 +93,8 @@ map.addSymbols({
         location: function(city) { return [city.lon, city.lat];},
         style: 'fill:#04c; stroke: #fff; fill-opacity: 0.5',
         tooltip: function(city) {
-            return '<h4>'+city.name+'</h4><b>Harinam hours: </b>'+city.hours+'</br>'+((city.img) ? '<img class="img-responsive" src="'+city.img+'">' : '');
+//            return '<h4>'+city.name+'</h4><b>Harinam hours: </b>'+city.hours+'</br>'+((city.img) ? '<img class="img-responsive" src="'+city.img+'">' : '')+'<br><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>';
+            return ['title', 'text'];
         },
         sortBy: 'radius desc'
     });

@@ -1,3 +1,75 @@
+$(document).ready(function(){
+    $(function () {
+                        cityAreaData = cities.map(function(a) {return a.hours});
+                        map = new jvm.Map({
+                                container: $('#map'),
+                                map: 'us_aea_en',
+                                regionsSelectable: true,
+                                markersSelectable: true,
+                                markers: cities,
+                                regionStyle: {
+                                    initial: {
+                                        fill: '#ececf8'
+                                    },
+                                    selected: {
+                                        fill: '#357B89'
+                                    }
+                                },
+                                markerStyle: {
+                                    initial: {
+//                                        fill: '#B93275',
+                                        fill: '#990000',
+//                                        stroke: '#B93275',
+                                        stroke: '#fff',
+                                        opacity: 0.5,
+                                        "stroke-width": 1,
+                                        "stroke-opacity":1
+                                    },
+                                    selected:{
+                                        fill: '#790035'
+                                    },
+                                    hover:{
+                                        stroke: '#000'
+                                    }
+                                },
+                                series: {
+                                    markers: [{
+                                        attribute: 'r',
+                                        scale: [4, 30],
+                                        values: cityAreaData,
+                                        normalizeFunction: 'polynomial'
+                                            }],
+                                    regions:[{
+                                        values: bookscores,
+                                        scale: ['#f0f9e8','#bae4bc', '#7bccc4', '#2b8cbe' ],
+                                        normalizeFunction: 'polynomial'
+                                    }]
+                                },
+                                onMarkerTipShow: function(event, label, index){
+                                    label.html(
+                                        '<b>'+cities[index].name+'</b><br>'+
+                                        '<b>Hours of Harinam: </b>'+cityAreaData[index]
+//                                        +((cities[index].img) ? '<img class="img-responsive" src="'+city[index].img+'">' : '')
+                                    );
+                                },
+                                onRegionTipShow: function(e, el, code){
+                                    if(bookscores[code]){
+                                        el.html(el.html()+ ': '+bookscores[code] + ' book points');
+                                    }
+                                    else{
+                                        el.html(el.html());
+                                    }
+                                },
+                                onMarkerClick: function(event, code){
+                                    console.log(code);
+                                    $('#myModal').modal('show')
+                                    
+                                }
+                            });
+                        });
+});
+
+
 var bookscores =  {
   "US-CA":18839.4  ,
   "US-KS":10634.85 ,
