@@ -12,6 +12,7 @@
     <script src="jquery-jvectormap-2.0.2.min.js"></script>
     <script src="bootstrap.js"></script>
     <script src="us_aea_en.js"></script>
+    <script src="bookscores.js"></script>
 </head>
 
 <body>
@@ -20,66 +21,97 @@
             <div class="col-md-12">
                 <div id="map" style="width: 2000px; height: 900px"></div>
                 <script>
-                    $(function () {
-                        markers = [
-                                {latLng: [40, -104],name: 'Denver'},
-                                {latLng: [32.1, -110],name: 'Tucson'},
-                                {latLng: [33.5, -118.2],name: 'Los Angeles'},
-                                {latLng: [37.3, -122],name: 'San Francisco'},
-                                {latLng: [41.5, -87.5],name: 'Chicago'},
-                                {latLng: [40.8, -73.9],name: 'New York City'},
-                                {latLng: [25.8, -80.2],name: 'Miami'}
-
-                        ],
-                            cityAreaData = [5, 4, 20, 18, 9, 35, 21]
-
-                        map = new jvm.Map({
-                                container: $('#map'),
-                                map: 'us_aea_en',
-                                regionsSelectable: true,
-                                markersSelectable: true,
-                                markers: markers,
-                                regionStyle: {
-                                    initial: {
-                                        fill: '#9be1ef'
-                                    },
-                                    selected: {
-                                        fill: '#357B89'
-                                    }
-                                },
-                                markerStyle: {
-                                    initial: {
-                                        fill: '#B93275',
-                                        stroke: '#B93275',
-                                        opacity: 0.75,
-                                        "stroke-width": 1,
-                                        "stroke-opacity":1
-                                    },
-                                    selected:{
-                                        fill: '#790035'
-                                    }
-                                },
-                                series: {
-                                    markers: [{
-                                        attribute: 'r',
-                                        scale: [3, 25],
-                                        values: cityAreaData,
-                                        normalizeFunctin: 'polynomial'
-                                            }]
-                                },
-                                onMarkerTipShow: function(event, label, index){
-                                    label.html(
-                                        '<b>'+markers[index].name+'</b><br>'+
-                                        '<b>Hours of Harinam: </b>'+cityAreaData[index]
-                                        
-                                    );
-                                }
-                            });
-                        })
+//                    $(function () {
+//                        cityAreaData = cities.map(function(a) {return a.hours});
+//                        map = new jvm.Map({
+//                                container: $('#map'),
+//                                map: 'us_aea_en',
+//                                regionsSelectable: true,
+//                                markersSelectable: true,
+//                                markers: cities,
+//                                regionStyle: {
+//                                    initial: {
+//                                        fill: '#ececf8'
+//                                    },
+//                                    selected: {
+//                                        fill: '#357B89'
+//                                    }
+//                                },
+//                                markerStyle: {
+//                                    initial: {
+////                                        fill: '#B93275',
+//                                        fill: '#990000',
+////                                        stroke: '#B93275',
+//                                        stroke: '#fff',
+//                                        opacity: 0.5,
+//                                        "stroke-width": 1,
+//                                        "stroke-opacity":1
+//                                    },
+//                                    selected:{
+//                                        fill: '#790035'
+//                                    },
+//                                    hover:{
+//                                        stroke: '#000'
+//                                    }
+//                                },
+//                                series: {
+//                                    markers: [{
+//                                        attribute: 'r',
+//                                        scale: [4, 30],
+//                                        values: cityAreaData,
+//                                        normalizeFunction: 'polynomial'
+//                                            }],
+//                                    regions:[{
+//                                        values: bookscores,
+//                                        scale: ['#f0f9e8','#bae4bc', '#7bccc4', '#2b8cbe' ],
+//                                        normalizeFunction: 'polynomial'
+//                                    }]
+//                                },
+//                                onMarkerTipShow: function(event, label, index){
+//                                    label.html(
+//                                        '<b>'+cities[index].name+'</b><br>'+
+//                                        '<b>Hours of Harinam: </b>'+cityAreaData[index]
+////                                        +((cities[index].img) ? '<img class="img-responsive" src="'+city[index].img+'">' : '')
+//                                    );
+//                                },
+//                                onRegionTipShow: function(e, el, code){
+//                                    if(bookscores[code]){
+//                                        el.html(el.html()+ ': '+bookscores[code] + ' book points');
+//                                    }
+//                                    else{
+//                                        el.html(el.html());
+//                                    }
+//                                },
+//                                onMarkerClick: function(event, code){
+//                                    var string = code;
+//                                    $('#myModal').modal('show')
+//                                    
+//                                }
+//                            });
+//                        })
                         
                 </script>
             </div>
         </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
     </div>
 
 

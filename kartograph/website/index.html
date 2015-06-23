@@ -1,11 +1,54 @@
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="raphael-min.js"></script>
-        <script src="kartograph.min.js"></script>
-        <script src="custom-map.js"></script>
-    </head>
-    <body>
-        <div id="map"></div>
-    </body>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="raphael-min.js"></script>
+    <script src="kartograph.min.js"></script>
+    <script src="jquery.qtip.min.js"></script>
+    <script src="custom-map.js"></script>
+
+    <link href="jquery.qtip.min.css" rel="stylesheet" />
+    <link href="bootstrap.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="map" style="background-color:#505050"></div>
+
+    <style>
+        .modal-content iframe {
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+
+    <div class="modal fade" id="DenverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Denver Harinam Sankirtan</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Video</h3>
+                                <iframe id="harinam-video" width="560" height="315" src="https://www.youtube.com/embed/eEPNdNFIK00" frameborder="0" allowfullscreen></iframe>
+                                <h3>Pictures</h3>
+                                <img src="https://krishnatest.blob.core.windows.net/krishnatestcontainer1/24hourkirtan.jpg" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
