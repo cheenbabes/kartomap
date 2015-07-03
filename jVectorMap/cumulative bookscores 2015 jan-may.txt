@@ -1,0 +1,38 @@
+1	Los Angeles	Web	USA	69664.55	26%	21485	10383	15673	30545	8388	0	35*		California	69664.55	18535.5	4578.35	1676.25	807.95	716.75
+2	RupanugaVedicC	Web	USA	30878.25	25%	10756	5853	2285	4931	11380	0	3*		Kansas	30878.25					
+3	Silicon Valley	Web	USA	18535.5	71%	8857	48	0	3094	0	0	181*		Colorado	12487.8					
+4	Denver	Web	USA	12487.8	-14%	4133	1777	2049	5382	748	0	26*		Maryland	10811.2					
+5	Baltimore		USA	10811.2	60%	3616	273	696	9468	5912	0	24*		Florida	8383.25	2425.9	1927.85	290		
+6	Chicago	Web	USA	8935.55	6%	2802	1512	1280	4529	473	0	0		Texas	7412.45					
+7	Gainesville	Web	USA	8383.25	-7%	2037	1932	3559	2391	0	0	3*		Mississippi	7233.75					
+8	TBB TSKP		USA	8153.65	95%	2583*	244	3318	4235	259*	0	0		DC	5417.95					
+9	Dallas	Web	USA	7412.45	10%	3403	172	255	1183	112	0	0		New York	4552.5					
+10	New Talavan	Web	USA	7233.75	24%	2674	653	2073	785	0	0	0		Georgia	4117.15					
+11	Washington D.C.	Web	USA	5417.95	53%	1708	297	2680	1427	82	0	9*		North Carolina	2391					
+12	Laguna Beach		USA	4578.35	6%	1886	113	219	1987	871	0	6*		Louisiana	2391					
+13	New York Harina		USA	4552.5	na	1227	907	471	3824	0	0	0		Illinois	8935.55					
+14	Toronto	Web	Can	4418.7	-46%	1135	750	1121	2602	249	37*	26*		Arizona	2391					
+15	Atlanta	Web	USA	4117.15	16%	1408	762	581	493	1254*	0	0		Pennsylvania	924.75					
+16	Alachua	Web	USA	2425.9	-45%	465	110	1159	2710	1289	0	0		Connecticut	627.25					
+17	"Hillsborough,"	Web	USA	2391	-31%	524	209	283	3964	15	0	10*		Missouri	475.5					
+18	New Orleans	Web	USA	2391	21%	29	0	1135	7051	0	0	0		Washington	368.25					
+19	Tucson		USA	2391	na	811	74	248	306	884	0	3*		Minnesota	234					
+20	Miami	Web	USA	1927.85	-22%	488	82	1	3095	912	1*	1*		Nevada	98.25					
+21	Bhakti Lounge (		Can	1871.05	na	794*	10*	335*	421*	3	0	1*		Hawaii	140.5					
+22	Sacramento/TYM		USA	1676.25	na	759*	96*	37*	175*	0	0	20*		Ohio	33.25					
+23	Saranagati Far	Web	Can	1592	na	726	0	280	0	0	0	1*								
+24	Philadelphia	Web	USA	924.75	15%	343	33	192	373	165	0	1*								
+25	Berkeley	Web	USA	807.95	-66%	158	126	364	633	257	0	0								
+26	Vancouver	Web	Can	792.25	na	264	39	246	409	0	0	0		Ontario	4418.7	1871.05				
+27	San Diego	Web	USA	716.75	-90%	204	195	135	185	0	0	0		BC	1592	792.25				
+28	Hartford		USA	627.25	na	148*	127*	86*	645*	0	0	4*								
+29	St. Louis	Web	USA	475.5	na	147	99	51	228	0	0	0								
+30	Seattle	Web	USA	368.25	na	115	15	39	135	84	14*	4*								
+31	Orlando		USA	290	na	0	0	241*	678*	0	0	0								
+32	Minneapolis		USA	234	67%	108	0	11	50	0	0	7*								
+33	Hale Krishna Ha		USA	140.5	-40%	12	42	37	180	110	0	0								
+34	Las Vegas		USA	98.25	-59%	39	0	5	71	0	0	0								
+35	Texarkana		USA	68.8	-10%	29	0	0	2	103*	0	4*								
+36	Krishna Culture		USA	44.45	-93%	8	9	23	31	2	0	0								
+37	Columbus	Web	USA	33.25	-92%	16	0	0	5	0	0	0								
+38	Arkadelphia		USA	11.75	-54%	2	0	7	17	0	0	0								

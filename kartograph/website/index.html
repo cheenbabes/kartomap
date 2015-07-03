@@ -6,15 +6,93 @@
     <script src="raphael-min.js"></script>
     <script src="kartograph.min.js"></script>
     <script src="jquery.qtip.min.js"></script>
-    <script src="custom-map.js"></script>
+<!--    <script src="custom-map.js"></script>-->
 
-    <link href="jquery.qtip.min.css" rel="stylesheet" />
+<!--    <link href="jquery.qtip.min.css" rel="stylesheet" />-->
     <link href="bootstrap.css" rel="stylesheet" />
 
 </head>
 
 <body>
     <div id="map" style="background-color:#505050"></div>
+    
+    <script>
+ $(function(){
+ 
+$.fn.qtip.defaults.style.classes = 'qtip-bootstrap';
+$.fn.qtip.defaults.style.def = false;
+
+
+var map = $K.map('#map');
+
+map.loadMap("usacanada.svg", function() {
+    // add layers
+    map.addLayer('background', { 
+        styles:{
+            fill: '#d1f3f7',
+            'stroke': 'none'
+        }
+    });
+    map.addLayer('world',{
+        styles:{
+            fill: '#ebe7e5',
+            'stroke':'none'
+        }
+    });  
+    map.addLayer('states',{
+        title: function(data) {
+            return data.name;
+        },
+        styles:{
+            fill: '#ececf8',
+            'stroke': '#882222',
+            'stroke-width': 0.5,
+            'stroke-opacity': 0.4
+        },
+    });
+    
+map.getLayer('states').style('fill', function(data){
+        return data.admin == "Canada" ? '#ebe7e5' : '#ececf8';
+    });
+    
+var cities = [
+        { lon: -97.70, lat: 30.3 , name: 'Austin', hours: 8, books: 430, hasModal: false },
+        { lon: -79.38, lat: 43.65 , name: 'Toronto', hours: 10 },
+        { lon: -87.65, lat: 41.90 , name: 'Chicago', hours: 5 },
+        { lon: -104.9, lat: 39.7 , name: 'Denver', hours: 8, hasModal: true, books: 1400 },
+        { lon: -117.78, lat: 33.54 , name: 'Laguna Beach', hours: 12 },
+        { lon: -118.2, lat: 33.5 , name: 'Los Angeles', hours: 20},
+        { lon: -80.43, lat: 25.65 , name: 'Miami', hours: 20 },
+        { lon: -74.34, lat: 40.92 , name: 'New Jersey', hours: 6},
+        { lon: -78.78, lat: 35.87 , name: 'Hillsborough', hours: 10 },
+        { lon: -121.60, lat: 38.70 , name: 'Sacramento', hours: 7 },
+        { lon: -117.17, lat: 32.73 , name: 'San Diego', hours: 9},
+        { lon: -122.0, lat: 37.3 , name: 'Silicon Valley', hours: 12, books: 8110},
+        { lon: -73.9, lat: 40.8 , name: 'New York', hours: 19}        
+    ];
+        
+var scaleHours = kartograph.scale.quantile(cities, 'hours').range([7, 25]);
+var scaleBooks = kartograph.scale.sqrt(cities, 'books').range([0, 30]);
+    
+map.addSymbols({
+        type: kartograph.Bubble,
+        data: cities,
+        radius: function(city){return scaleHours(city.hours);},
+        location: function(city) { return [city.lon, city.lat];},
+        style: 'fill:#259073; stroke: #fff; fill-opacity: 0.5',
+        tooltip: function(city) {
+            var header = '<b>'+city.name+'</b>';
+            var myString  = '<div class="alert alert-info"><b>'+city.hours+' hours of harinam</b></div>';
+            return [header, myString];
+        },
+        sortBy: 'radius desc'
+    }); 
+},
+            {padding: -5});
+     })
+</script> 
+    
+    </script>
 
     <style>
         .modal-content iframe {
@@ -22,6 +100,8 @@
             display: block;
         }
     </style>
+    
+    
 
     <div class="modal fade" id="DenverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
