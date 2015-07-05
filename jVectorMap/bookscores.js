@@ -3,10 +3,10 @@ $(document).ready(function(){
                         cityAreaData = cities.map(function(a) {return a.hours});
                         map = new jvm.Map({
                                 container: $('#map'),
-                                map: 'us_aea_en',
-                                regionsSelectable: true,
+                                map: 'usa_canada',
+                                regionsSelectable: false,
                                 markersSelectable: true,
-                                markers: cities,
+//                                markers: cities,
                                 regionStyle: {
                                     initial: {
                                         fill: '#ececf8'
@@ -33,12 +33,12 @@ $(document).ready(function(){
                                     }
                                 },
                                 series: {
-                                    markers: [{
-                                        attribute: 'r',
-                                        scale: [4, 30],
-                                        values: cityAreaData,
-                                        normalizeFunction: 'polynomial'
-                                            }],
+//                                    markers: [{
+//                                        attribute: 'r',
+//                                        scale: [4, 30],
+//                                        values: cityAreaData,
+//                                        normalizeFunction: 'polynomial'
+//                                            }],
                                     regions:[{
                                         values: bookscores,
                                         scale: ['#f0f9e8','#bae4bc', '#7bccc4', '#2b8cbe' ],
@@ -60,7 +60,7 @@ $(document).ready(function(){
                                         el.html(el.html());
                                     }
                                 },
-                                onMarkerClick: function(event, code){
+                                onRegionClick: function(event, code){
                                     console.log(code);
                                     $('#myModal').modal('show')
                                     
